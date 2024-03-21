@@ -2,9 +2,9 @@
 class Algos
 {
 private:
-
+	int findMidPoint(int min, int max);
 public:
-	int linearSearch(int key, int *myNums, int sizeOfArray); // returns int so method must be int
-															// array is passed by pointer
-															//size of = 5 // pass the size of array
+	int linearSearch(int key, int *myNums, int sizeOfArray);
+	int binarySearch(int key, int* myNums, int min, int max);
+
 };
