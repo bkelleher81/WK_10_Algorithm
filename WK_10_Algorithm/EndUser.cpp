@@ -47,5 +47,19 @@ int main()
 	{
 		cout << "\n"<< userNum << " is found at array location: " << answer << endl;
 	}
+	cout << endl;
+	cout << "Array before sorting: \n";
+		for (int j = 0; j < 10; j++)
+		{
+			cout << someNumbers[j] << " ";
+		}
+		cout << endl;
+		a.bubbleSort(someNumbers, 10);
+		cout << endl;
+		cout << "Array after sorting: \n";
+		for (int j = 0; j < 10; j++)
+		{
+			cout << someNumbers[j] << " ";
+		}
 	return 0;
 }
