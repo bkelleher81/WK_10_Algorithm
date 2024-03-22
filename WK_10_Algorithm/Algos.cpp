@@ -47,7 +47,7 @@ void Algos::showMenu()
 	cin >> choice;
 	if (choice == 1)
 	{
-		cout << "Enter number we are looking for: ";
+		cout << "Enter number we are looking for: ";// enter number before searching
 		cin >> userNum;
 		answer = linearSearch(userNum, someNumbers, 10);
 		cout << "Numbers in array are as follows: " << endl;
@@ -68,7 +68,7 @@ void Algos::showMenu()
 	}
 	else if (choice == 2)
 	{
-		cout << "Enter number we are looking for: ";
+		cout << "Enter number we are looking for: ";// enter number before searching
 		cin >> userNum;
 		answer=binarySearch(userNum, sortedNumbers, 0, 9); // must insert value we are looking for and size of array
 		cout << endl;
@@ -143,10 +143,12 @@ void Algos::showMenu()
 	{
 		cout << "Goodbye!\n";
 	}
-		else
+	else
 	{
 		cout << "Invalid choice. Please try again.\n";
 	}
+	cout << endl;
+	showMenu();
 }
 int Algos::linearSearch(int key, int *myNums, int sizeOfArray)
 {
