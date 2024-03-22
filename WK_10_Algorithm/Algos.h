@@ -25,4 +25,5 @@ public:
 	void bubbleSort(int* A, int n);
 	void bubbleSortChars(char* A, int n);
 	void bubbleSortStrings(string* A, int n);
+	void selectionSort(int* A, int n);
 };

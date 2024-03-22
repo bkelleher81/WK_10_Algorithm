@@ -43,7 +43,8 @@ void Algos::showMenu()
 	cout << "3. Bubble Sort" << endl;
 	cout << "4. Bubble Sort Chars" << endl;
 	cout << "5. Bubble Sort Strings" << endl;
-	cout << "6. Exit" << endl;
+	cout << "6. Selection Sort" << endl;
+	cout << "7. Exit" << endl;
 	cin >> choice;
 	if (choice == 1)
 	{
@@ -141,7 +142,24 @@ void Algos::showMenu()
 	}
 	else if (choice == 6)
 	{
+		cout << "Array before sorting: \n";
+		for (int j = 0; j < 10; j++)
+		{
+			cout << someNumbers[j] << " ";
+		}
+		cout << endl;
+		selectionSort(someNumbers, 10); // Call the selection sort function
+		cout << "Array after sorting: \n";
+		for (int j = 0; j < 10; j++)
+		{
+			cout << someNumbers[j] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice == 7)
+	{
 		cout << "Goodbye!\n";
+		exit(0);
 	}
 	else
 	{
@@ -246,6 +264,24 @@ void Algos::bubbleSortStrings(string* A, int n)
 		if (!flag)// didnt do any swapping
 		{
 			break;
+		}
+	}
+}
+void Algos::selectionSort(int* A, int n)
+{
+	for (int i = 0; i < n - 1; ++i)
+	{
+		int minIndex = i;
+		for (int j = i + 1; j < n; ++j)
+		{
+			if (A[j] < A[minIndex])
+			{
+				minIndex = j;
+			}
+		}
+		if (minIndex != i)
+		{
+			swap(A[i], A[minIndex]);
 		}
 	}
 }
