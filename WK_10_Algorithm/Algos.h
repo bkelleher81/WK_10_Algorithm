@@ -12,7 +12,7 @@ private:
 	int sortedNumbers[10] = { 10,20,30,40,50,60,70,80,90,100 };
 	char someChars[10] = { 'a','z','b','y','c','x','d','w','e','v' };
 	string someStrings[10] = { "banana", "cherry", "apple", "kiwi", "grape", "fig", "lemon", "date", "elderberry", "honeydew" };
-	int choice;
+	int choice=-1;
 	int userNum = -1;
 	int findMidPoint(int min, int max);
 	void swap(int& n1, int& n2);
