@@ -1,8 +1,25 @@
 #include "Algos.h"
 #include<iostream>
 #include<string>
+#include<fstream>
 using namespace std;
 
+void Algos::initializeArray()
+{
+	ifstream inStream("myData.txt");
+	if (inStream.fail())
+	{
+		cout << "File failed to open" << endl;
+		exit(1);
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		inStream >> someNumbers[i];
+	}
+	// int sortedNumbers[10] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+	int userNum = -1;
+	int answer = -1;
+}
 
 int Algos::findMidPoint(int min, int max)
 {
@@ -19,7 +36,6 @@ void Algos::swap(int& n1, int& n2)
 
 void Algos::swapChars(char& c1, char& c2)
 {
-	//int temp2 = -1;
 	char temp2 = c1;
 	c1 = c2;
 	c2 = temp2;
@@ -27,24 +43,24 @@ void Algos::swapChars(char& c1, char& c2)
 
 void Algos::swapStrings(string& s1, string& s2)
 {
-//	string temp3 = " ";
 	string temp3 = s1;
 	s1 = s2;
 	s2 = temp3;
 }
 
+
 void Algos::showMenu()
-{
-	
-	
+{	
 	cout << "Please select an option from the menu below: " << endl;
 	cout << "1. Linear Search" << endl;
 	cout << "2. Binary Search" << endl;
 	cout << "3. Bubble Sort" << endl;
-	cout << "4. Bubble Sort Chars" << endl;
-	cout << "5. Bubble Sort Strings" << endl;
-	cout << "6. Selection Sort" << endl;
-	cout << "7. Exit" << endl;
+	cout << "4. Bubble Sort with Pointers" << endl;
+	cout << "5. Bubble Sort Chars" << endl;
+	cout << "6. Bubble Sort Strings" << endl;
+	cout << "7. Selection Sort" << endl;
+	cout << "8. Selection Sort  with Pointers" << endl;
+	cout << "9. Exit" << endl;
 	cin >> choice;
 	if (choice == 1)
 	{
@@ -113,6 +129,22 @@ void Algos::showMenu()
 		cout << "Array before sorting: \n";
 		for (int j = 0; j < 10; j++)
 		{
+			cout << someNumbers[j] << " ";
+		}
+		cout << endl;
+		bubbleSortPointerVersion(someNumbers, 10);
+		cout << endl;
+		cout << "Array after sorting: \n";
+		for (int j = 0; j < 10; j++)
+		{
+			cout << someNumbers[j] << " ";
+		}
+	}
+	else if (choice == 5)
+	{
+		cout << "Array before sorting: \n";
+		for (int j = 0; j < 10; j++)
+		{
 			cout << someChars[j] << " ";
 		}
 		cout << endl;
@@ -124,7 +156,7 @@ void Algos::showMenu()
 			cout << someChars[j] << " ";
 		}
 	}
-	else if (choice == 5)
+	else if (choice == 6)
 	{
 		cout << "Array before sorting: \n";
 		for (int j = 0; j < 10; j++)
@@ -140,7 +172,7 @@ void Algos::showMenu()
 			cout << someStrings[j] << " ";
 		}
 	}
-	else if (choice == 6)
+	else if (choice == 7)
 	{
 		cout << "Array before sorting: \n";
 		for (int j = 0; j < 10; j++)
@@ -156,7 +188,23 @@ void Algos::showMenu()
 		}
 		cout << endl;
 	}
-	else if (choice == 7)
+	else if (choice == 8)
+	{
+		cout << "Array before sorting: \n";
+		for (int j = 0; j < 10; j++)
+		{
+			cout << someNumbers[j] << " ";
+		}
+		cout << endl;
+		selectionSortPointerVersion(someNumbers, 10); // Call the selection sort function
+		cout << "Array after sorting: \n";
+		for (int j = 0; j < 10; j++)
+		{
+			cout << someNumbers[j] << " ";
+		}
+		cout << endl;
+	}
+	else if (choice == 9)
 	{
 		cout << "Goodbye!\n";
 		exit(0);
@@ -176,9 +224,7 @@ int Algos::linearSearch(int key, int *myNums, int sizeOfArray)
 		{
 			return i;
 		}
-
 	}
-
 	return -1;
 }
 
@@ -216,6 +262,27 @@ void Algos::bubbleSort(int* A, int n)
 			if (A[i] > A[i + 1])
 			{
 				swap(A[i], A[i + 1]);
+				flag = true;
+			}
+		}
+		if (!flag)// didnt do any swapping
+		{
+			break;
+		}
+	}
+}
+
+void Algos::bubbleSortPointerVersion(int* A, int n)
+{
+	bool flag = false;
+	for (int k = 1; k < n; k++)
+	{
+		flag = false;
+		for (int i = 0; i < n - k; i++)
+		{
+			if (*(A+i) > *(A+i + 1))
+			{
+				swap(*(A+i), *(A+i + 1));
 				flag = true;
 			}
 		}
@@ -282,6 +349,25 @@ void Algos::selectionSort(int* A, int n)
 		if (minIndex != i)
 		{
 			swap(A[i], A[minIndex]);
+		}
+	}
+}
+
+void Algos::selectionSortPointerVersion(int* A, int n)
+{
+	for (int i = 0; i < n - 1; ++i)
+	{
+		int minIndex = i;
+		for (int j = i + 1; j < n; ++j)
+		{
+			if (*(A+j) < *(A+minIndex))
+			{
+				minIndex = j;
+			}
+		}
+		if (minIndex != i)
+		{
+			swap(*(A+i), *(A+minIndex));
 		}
 	}
 }

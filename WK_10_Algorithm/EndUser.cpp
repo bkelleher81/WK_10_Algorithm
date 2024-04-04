@@ -1,13 +1,12 @@
 #pragma once
 #include"Algos.h"
 #include <iostream>
+#include<fstream>
 using namespace std;
 
 int main()
 {
 	Algos a;
-	a.showMenu();
-	
-	
+	a.showMenu();	
 	return 0;
 }
