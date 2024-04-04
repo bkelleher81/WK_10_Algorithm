@@ -6,19 +6,27 @@ using namespace std;
 
 void Algos::initializeArray()
 {
-	ifstream inStream("myData.txt");
+	ifstream inStream("mydata.txt");
 	if (inStream.fail())
 	{
 		cout << "File failed to open" << endl;
 		exit(1);
 	}
+
+	// Allocate memory for the array dynamically
+	int* someNumbers = new int[10];
+
+	// Read data from the file into the dynamically allocated array
 	for (int i = 0; i < 10; i++)
 	{
 		inStream >> someNumbers[i];
 	}
-	// int sortedNumbers[10] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
-	int userNum = -1;
-	int answer = -1;
+
+	// Assign the dynamically allocated array to the class member variable
+	this->someNumbers = someNumbers;
+
+	// Don't forget to close the file stream when done
+	inStream.close();
 }
 
 int Algos::findMidPoint(int min, int max)

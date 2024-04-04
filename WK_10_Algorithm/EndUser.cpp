@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
 	Algos a;
+	a.initializeArray();
 	a.showMenu();	
 	return 0;
 }
