@@ -7,8 +7,7 @@ class Algos
 {
 private:
 	int answer = -1; // catch variable for i
-	int* someNumbers; // Change from static array to pointer
-	//int someNumbers[10] = { 10, 15, 12, 18, 6, 2, 1, -20, 0, 100 };
+	int* someNumbers; // Change from static array to pointer, dynamic array
 	int sortedNumbers[10] = { 10,20,30,40,50,60,70,80,90,100 };
 	char someChars[10] = { 'a','z','b','y','c','x','d','w','e','v' };
 	string someStrings[10] = { "banana", "cherry", "apple", "kiwi", "grape", "fig", "lemon", "date", "elderberry", "honeydew" };
